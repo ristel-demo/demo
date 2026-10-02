@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Developers</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+    body{
+    background:
+    radial-gradient(circle at top,
+    #1e1b4b,
+    #020617 70%);
+    color:white;
+    }
+
+    .hero{
+
+        text-align:center;
+        margin-bottom:30px;
+    }
+
+    .badge{
+
+        display:inline-block;
+
+        padding:12px 25px;
+        border-radius:50px;
+        margin-top: 30px;
+        background:
+        rgba(255,255,255,.05);
+        border:
+        1px solid rgba(255,255,255,.1);
+        margin: bottom 30px;
+        color:#93c5fd;
+    }
+
+    .hero h1{
+
+        font-size:80px;
+        font-weight:700;
+    }
+
+    .hero span{
+        background:
+        linear-gradient(
+        to right,
+        #3b82f6,
+        #8b5cf6,
+        #ec4899
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+        color:#94a3b8;
+        margin-top:10px;
+        font-size:22px;
+    }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .heading h1 {
+            font-size: 50px;
+            background: linear-gradient(to right, #38bdf8, #818cf8, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .heading p {
+            color: #cbd5e1;
+            margin-top: 15px;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .card{
+        width:380px;
+        padding:40px;
+        border-radius:32px;
+        align-items: center;
+        text-align: center;
+        background:
+        rgba(255,255,255,.04);
+        backdrop-filter:
+        blur(20px);
+        border:
+        1px solid rgba(255,255,255,.08);
+        transition:.4s;
+        }
+
+        .card:hover{
+            transform:
+            translateY(-12px);
+            box-shadow:
+            0 25px 50px rgba(0,0,0,.5);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+        .role {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+        .card p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+        .home-btn {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .home-btn a {
+            text-decoration: none;
+        }
+
+        .home-btn button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 14px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .mentor-section{
+        margin-top:30px;
+        text-align:center;
+        }
+        .mentor-section h1{
+            font-size:55px;
+        }
+        .mentor-section span{
+            color:#8b5cf6;
+        }
+
+        .mentor-card{
+            max-width:900px;
+            margin:30px auto;
+            padding:40px;
+            display:flex;
+            align-items:center;
+            gap:40px;
+            border-radius:30px;
+            background:
+            rgba(255,255,255,.04);
+            backdrop-filter:
+            blur(20px);
+            border:
+            1px solid rgba(255,255,255,.08);
+        }
+
+        .mentor-card img{
+            width:180px;
+            height:180px;
+            border : 4px solid #38bdf8;
+            border-radius:50%;
+            object-fit:cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="badge">
+            SAM Global University
+        </div>
+    
+        <h1>
+            Project
+            <span>Developers</span>
+        </h1>
+    
+        <p>
+            Meet the talented team behind the
+            SAM Attendance Management System
+        </p>
+    </section>
+
+    <div class="team-container">
+        <!-- Myself -->
+        <div class="card">
+            <img src="{{ url_for('static',
+        filename='images/5.jpg') }}">
+            <h2>Priyanshu Rajput</h2>
+
+            <div class="role">
+                Backend Developer
+            </div>
+            <p>
+                Developed Flask backend,
+                MySQL integration,
+                attendance logic,
+                and authentication system.
+            </p>
+        </div>
+
+        <!-- FRIEND 1 -->
+
+        <div class="card">
+
+            <img src="{{ url_for('static',
+        filename='images/6.jpeg') }}">
+            <h2>Priyanshi Dhurve</h2>
+
+            <div class="role">
+                Frontend Developer
+            </div>
+
+            <p>
+                Designed UI components,
+                dashboard styling,
+                and responsive layouts.
+            </p>
+        </div>
+
+        <!-- Satyam -->
+
+        <div class="card">
+            <img src="{{ url_for('static',
+        filename='images/9.jpeg') }}">
+
+            <h2>Satyam Kumar</h2>
+
+            <div class="role">
+                Bussiness Analyst
+            </div>
+
+            <p>
+                Managed Documentation,
+                attendance records,
+                and report generation.
+            </p>
+        </div>
+    </div>
+
+    <section class="mentor-section">
+        <h1>
+            Project
+            <span>Mentor</span>
+        </h1>
+    
+        <p>
+            Under the expert guidance
+            of our faculty mentor
+        </p>
+    
+        <div class="mentor-card">
+            <img src="{{ url_for('static',
+            filename='images/10.jpeg') }}">
+    
+            <div>
+                <h2>
+                    Mrs. Geeta Singh
+                </h2>
+                <h3>
+                    Assistant Professor
+                </h3>
+                <p>
+                    Department of Computer Science
+                    & Engineering
+                </p>
+    
+                <p>
+                    Guiding the team through the
+                    development of this modern
+                    attendance management system.
+                </p>    
+            </div>    
+        </div>
+    
+    </section>
+    <section class="student-management"></section>
+    <div class="home-btn">
+        <a href="/">
+            <button>
+                Back To Home
+            </button>
+        </a>
+    </div>
+
+</body>
+</html>

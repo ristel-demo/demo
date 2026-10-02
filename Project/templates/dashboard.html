@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <h2>SAM</h2>
+
+                <p>Attendance System</p>
+
+            </div>
+
+            <nav>
+
+                <a href="/dashboard">Dashboard</a>
+
+                <a href="/students" class="active">
+                    Developers
+                </a>
+
+                <a href="/reports">
+                    Reports
+                </a>
+
+                <a href="/logout">
+                    Logout
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+
+            <div class="topbar">
+
+                <div>
+
+                    <h1>Student Management</h1>
+
+                    <p>
+                        Manage all students and attendance
+                    </p>
+
+                </div>
+                    <div class="class-badge">
+
+                        🎓 Diploma CSE 2025–26 Final Semester
+
+                    </div>
+
+            </div>
+
+            <!-- STATS -->
+
+            <div class="stats">
+            
+                <div class="card">
+            
+                    <h2>{{ total_students.total }}</h2>
+            
+                    <p>Total Students</p>
+            
+                </div>
+            
+                <div class="card">
+            
+                    <h2>{{ present_today.present }}</h2>
+            
+                    <p>Present Today</p>
+            
+                </div>
+            
+                <div class="card">
+            
+                    <h2>{{ absent_today.absent }}</h2>
+            
+                    <p>Absent Today</p>
+            
+                </div>
+            
+                <div class="card">
+            
+                    <h2>{{ percentage }}%</h2>
+            
+                    <p>Attendance Rate</p>
+            
+                </div>
+            
+            </div>
+
+            <!-- ADD STUDENT -->
+
+            <div class="action-bar">
+
+                <button class="add-btn" onclick="openModal()">
+
+                    Add Student
+
+                </button>
+
+            </div>
+
+            <!-- TABLE -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Roll No</th>
+
+                            <th>Name</th>
+
+                            <th>Attendance</th>
+
+                            <th>Manage</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for student in students %}
+
+                        <tr>
+
+                            <td>
+                                {{ student.id }}
+                            </td>
+
+                            <td>
+                                {{ student.roll_no }}
+                            </td>
+
+                            <td>
+                                {{ student.name }}
+                            </td>
+
+                            <td>
+
+                                <div class="attendance-buttons">
+
+                                    <a href="/mark_attendance/{{ student.id }}/Present">
+
+                                        <button class="present-btn">
+
+                                            Present
+
+                                        </button>
+
+                                    </a>
+
+                                    <a href="/mark_attendance/{{ student.id }}/Absent">
+
+                                        <button class="absent-btn">
+
+                                            Absent
+
+                                        </button>
+
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+
+                                <a href="/delete_student/{{ student.id }}">
+
+                                    <button class="delete-btn">
+
+                                        Remove
+
+                                    </button>
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- MODAL -->
+
+    <div id="studentModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>Add Student</h2>
+
+            <form action="/add_student" method="POST">
+
+                <input type="text" name="roll_no" placeholder="Roll Number" required>
+
+                <input type="text" name="name" placeholder="Student Name" required>
+
+                <button type="submit">
+
+                    Add Student
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function openModal() {
+
+            document
+                .getElementById("studentModal")
+                .style.display = "flex";
+
+        }
+
+        window.onclick = function (event) {
+
+            let modal =
+                document.getElementById("studentModal");
+
+            if (event.target == modal) {
+
+                modal.style.display = "none";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
